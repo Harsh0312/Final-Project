@@ -47,7 +47,7 @@ export default function MedicineCard({medicine}:props){
         &#8377; &nbsp;{medicine.priceMed}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {medicine.descriptionMed}
+          {medicine.category}
         </Typography>
       </CardContent>
       <CardActions>

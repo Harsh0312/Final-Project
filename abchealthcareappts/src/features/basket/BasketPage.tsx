@@ -50,7 +50,7 @@ export default function BasketPage()
             >
               <TableCell component="th" scope="row">
                 <Box display='flex' alignItems='center'>
-                    <img src="http://picsum.photos/200" alt={item.nameMed} style={{height:50,marginRight:20}}/>
+                    <img src={item.imagePathMed} alt={item.nameMed} style={{height:50,marginRight:20}}/>
                     <span>{item.nameMed}</span>
                 </Box>
               </TableCell>
@@ -73,7 +73,7 @@ export default function BasketPage()
                 </TableCell>
               <TableCell align="right">{item.priceMed * item.quantity}</TableCell>
               <TableCell align="right">{item.category}</TableCell>
-              <IconButton color='error'>
+              <IconButton color='error' onClick={() =>handleRemoveItem(item.idMed, item.quantity)}>
                 <Delete/>
               </IconButton>
             </TableRow>

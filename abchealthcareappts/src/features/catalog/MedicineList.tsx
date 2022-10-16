@@ -11,7 +11,7 @@ export default function MedicineList({medicines}:props){
         
        <Grid container spacing={4}>
         {medicines.map(medicine => (
-            <Grid item xs={3}>
+            <Grid item xs={4}>
             <MedicineCard key={medicine.idMed} medicine={medicine}/>
             </Grid>
         ))}

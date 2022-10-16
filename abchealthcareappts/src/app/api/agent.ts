@@ -1,5 +1,6 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
 import { Stats } from 'fs';
+import { request } from 'http';
 import { toast } from 'react-toastify';
 
 axios.defaults.baseURL='http://localhost:5000/api/';
@@ -59,9 +60,15 @@ const Basket={
 
 }
 
+const Account={
+    login:(values:any) =>requests.post('account/login',values),
+    register:(values:any)=>requests.post('account/register',values),
+    currentUser:()=>requests.get('account/currentUSer'),
+}
 const agent={
     Catalog,
     TestErrors,
-    Basket
+    Basket,
+    Account
 }
 export default agent;
