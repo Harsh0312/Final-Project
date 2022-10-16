@@ -1,8 +1,10 @@
 ﻿using AbcHealthCareApi.Data;
 using AbcHealthCareApi.Entities;
+using AbcHealthCareApi.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace AbcHealthCareApi.Controllers
@@ -21,10 +23,14 @@ namespace AbcHealthCareApi.Controllers
         //    return View();
         //}
         [HttpGet]
-        public async Task<ActionResult<List<Medicine>>> GetMedicines()
+        public async Task<ActionResult<List<Medicine>>> GetMedicines(string orderBy,string searchTerm,string categories,string sellerMeds)
         {
-            var medicines =  await _context.medicines.ToListAsync();
-            return Ok(medicines);
+            var query = _context.medicines
+                .Sort(orderBy)
+                .Search(searchTerm)
+                .Filter(categories,sellerMeds)
+                .AsQueryable();
+            return await query.ToListAsync();
         }
         [HttpGet("{IdMed}")]
         public async Task<ActionResult<Medicine>> GetMedicine(int IdMed)

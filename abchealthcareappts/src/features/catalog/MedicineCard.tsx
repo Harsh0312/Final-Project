@@ -38,7 +38,7 @@ export default function MedicineCard({medicine}:props){
         component="img"
         sx={{height:"140",
         backgroundSize:'contain',bgcolor:'primary.light'}}
-        image="http://picsum.photos/200"
+        image={medicine.imagePathMed}
         title={medicine.nameMed}
         alt="green iguana"
       />

@@ -59,7 +59,7 @@ export default function MedicineDetails(){
         <>
            <Grid container spacing={6}>
             <Grid item xs={6}>
-                <img src='http://picsum.photos/200' alt={medicine.nameMed} style={{width:'100%'}}/>
+                <img src={medicine.imagePathMed} alt={medicine.nameMed} style={{width:'100%'}}/>
             </Grid>
            <Grid item xs={6}>
             <Typography variant='h3'>{medicine.nameMed}</Typography>
